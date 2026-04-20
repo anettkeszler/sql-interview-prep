@@ -1,0 +1,35 @@
+-- https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/description/?envType=study-plan-v2&envId=top-sql-50
+
+-- Write a solution to show the unique ID of each user, If a user does not have a unique ID replace just show null.
+
+DROP TABLE IF EXISTS Employees;
+DROP TABLE IF EXISTS EmployeeUNI;
+
+-- Schema
+CREATE TABLE Employees (
+    id int,
+    name varchar
+);
+
+CREATE TABLE EmployeeUNI (
+    id int,
+    unique_id int
+);
+
+INSERT INTO Employees (id, name) VALUES
+(1, 'Alice'),
+(7, 'Bob'),
+(11, 'Meir'),
+(90, 'Winston'),
+(3, 'Jonathan');
+
+INSERT INTO EmployeeUNI (id, unique_id) VALUES
+(3, 1),
+(11, 2),
+(90, 3);
+
+-- Solution
+SELECT unique_id, name
+FROM EmployeeUNI 
+RIGHT JOIN Employees on EmployeeUNI.id=Employees.id
+
