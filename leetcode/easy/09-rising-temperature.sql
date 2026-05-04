@@ -22,11 +22,12 @@ SELECT id
 FROM (
     SELECT 
         id,
-        temperature, 
-        record_date, 
+        record_date,
+        temperature,
         LAG(temperature) OVER (ORDER BY record_date) AS prev_temp,
         LAG(record_date) OVER (ORDER BY record_date) AS prev_date
     FROM Weather
 ) t
-WHERE temperature > prev_temp AND record_date = prev_date + INTERVAL '1 day';
+WHERE temperature > prev_temp
+  AND record_date - prev_date = 1;
 
