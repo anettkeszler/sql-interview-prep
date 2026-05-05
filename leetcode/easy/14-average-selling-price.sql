@@ -34,7 +34,7 @@ INSERT INTO UnitsSold (product_id, purchase_date, units) VALUES
 -- Solution
 SELECT p.product_id, 
     ROUND(
-        COALESCE(SUM(p.price * u.units) / SUM(u.units), 0),
+        COALESCE(SUM(p.price * u.units) * 1.0 / SUM(u.units), 0),
         2
     ) AS average_price
 FROM Prices p
@@ -42,3 +42,18 @@ LEFT JOIN UnitsSold u
     ON p.product_id = u.product_id
     AND u.purchase_date BETWEEN p.start_date AND p.end_date
 GROUP BY p.product_id;
+
+-- Explanation 
+-- To solve this, you need to compute a weighted average price for each product:
+--        average_price = (total revenue) / (total units)
+-- Where: revenue = price × units
+-- Match each sale with the correct price using the date range
+
+-- Join condition ensures each sale uses the correct price interval
+-- SUM(u.units * p.price) → total revenue
+-- SUM(u.units) → total units sold
+-- COALESCE(..., 0) → handles products with no sales
+-- ROUND(..., 2) → formats to 2 decimals
+-- LEFT JOIN → ensures all products appear, even unsold ones
+
+-- COALESCE() is a SQL function used to handle NULL values by returning the first non-NULL value from a list.

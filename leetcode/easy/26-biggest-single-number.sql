@@ -29,3 +29,9 @@ FROM (
     HAVING COUNT(*) = 1
 ) as temp;
 
+-- Explanation
+-- 1. The Inner Query: 
+    -- Groups all rows by each unique number and counts how many times each number appears.
+    -- HAVING COUNT(*) = 1 --> Keeps only numbers that appear once.
+-- 2. The Outer Query: 
+    -- Applies MAX() to find the largest value.

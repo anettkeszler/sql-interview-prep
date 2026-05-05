@@ -32,3 +32,8 @@ JOIN (
 ) t
 ON s.product_id = t.product_id
 AND s.year = t.first_year;
+
+-- Explanation 
+-- 1. Find the earliest year per product_id: Subquery t finds the first year each product appears
+-- 2. Return all rows from that year for each product: Join ensures we only keep rows where: product matches and year = first year
+--       This naturally returns all sales in that first year (even if multiple rows exist)
