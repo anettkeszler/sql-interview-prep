@@ -19,4 +19,4 @@ INSERT INTO Users (user_id, name) VALUES
 SELECT user_id,
     UPPER(SUBSTRING(name, 1, 1)) || LOWER(SUBSTRING(name, 2)) AS name
 FROM Users
-ORDER BY user_id ASC
+ORDER BY user_id ASC;

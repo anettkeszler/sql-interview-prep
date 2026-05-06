@@ -1,6 +1,7 @@
 -- https://leetcode.com/problems/average-selling-price/description/?envType=study-plan-v2&envId=top-sql-50
 
--- Write a solution to find the average selling price for each product. average_price should be rounded to 2 decimal places. If a product does not have any sold units, its average selling price is assumed to be 0.
+-- Write a solution to find the average selling price for each product. average_price should be rounded to 2 decimal places. 
+-- If a product does not have any sold units, its average selling price is assumed to be 0.
 
 DROP TABLE IF EXISTS Prices;
 DROP TABLE IF EXISTS UnitsSold;
