@@ -2,37 +2,37 @@
 
 This repository demonstrates my SQL skills through:
 - Real-world business problems
-- LeetCode SQL solutions
+- LeetCode SQL solutions (Source: https://leetcode.com/studyplan/top-sql-50/)
 - Database schema design
 
 ## Skills Covered
 - Joins (inner, left, complex joins)
-- Window functions (ROW_NUMBER, RANK)
+- Window functions
 - Aggregations & grouping
-- Subqueries & CTEs
-- Performance thinking
+- Subqueries
 
 ## Highlight Projects
-- Customer Retention Analysis
+- Customer Analysis
 - E-commerce Sales Insights
 
-## Project Structure: 
+
+## Connect to a PostgreSQL database from the terminal
+- Local PostgreSQL setup (quick check)
 ```
-sql-interview-prep/
-│
-├── README.md
-├── schema/
-│   └── ecommerce_schema.sql
-│
-├── case-studies/
-│   ├── customer-analytics.sql
-│   ├── retention-analysis.sql
-│
-├── leetcode/
-│   ├── easy/
-│   ├── medium/
-│   └── hard/
-│
-├── explanations/
-│   └── window-functions.md
+psql --version
 ```
+- Connect to a PostgreSQL db:
+```
+psql -U postgres
+```
+- to run an sql file:
+```
+\i /full/path/to/your/file.sql
+```
+- Other commands in psql shell:
+```
+\l        -- list databases
+\c dbname -- connect to database
+\dt       -- list tables
+```
+
